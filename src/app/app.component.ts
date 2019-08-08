@@ -8,10 +8,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'Data Table';
-  userList: User[];
-  userSubscription: Subscription;
+export class AppComponent implements OnInit {
+  
 
   constructor(
     private userService: UserService
@@ -20,12 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.userSubscription = this.userService.getAll().subscribe(
-      users => this.userList = users
-    );
+    
   }
 
-  ngOnDestroy() {
-    this.userSubscription.unsubscribe();
-  }
+  
 }

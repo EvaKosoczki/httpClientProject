@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <!--<p>{{userListModifier()}}</p>-->
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="col-5 input-group offset-1 p-4">
+      <label for="search">Search</label>
+      <input class="form-control" type="text" id="search"
+        [(ngModel)]="filterPhrase">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th (click)="sorterFunc('id')">#</th>
+            <th (click)="sorterFunc('name.first')">Name</th>
+            <th (click)="sorterFunc('isActive')">Active</th>
+            <th (click)="sorterFunc('age')">Age</th>
+            <th (click)="sorterFunc('email')">Email</th>
+            <th (click)="sorterFunc('phone')">Phone</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            *ngFor="let user of userList|searchPipe:filterPhrase|order:sorterKey">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name.last }} {{ user.name.first }}</td>
+            <td>{{ user.isActive }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td class="btn-group"><button
+                class="btn btn-outline-primary">Edit</button><button
+                class="btn btn-outline-secondary">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
