@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './page/nav/nav.component';
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
     PopupComponent
   ],
   imports: [
+    AngularFontAwesomeModule,
     NgbModule,
     FormsModule,
     BrowserModule,

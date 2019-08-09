@@ -12,16 +12,18 @@ export class HomeComponent implements OnInit {
   activeUserCount: number = 0;
   notactiveUserCount: number = 0;
   balance: number = 0;
-  appleCounter: number = 0;
+  fruitCounter: number = 0;
+  Fruits: string[] = [];
+  FruitArray: number[] = [];
   constructor(private userService: UserService) { }
   ngOnInit() {
     this.userService.getAll().subscribe(
       response => {
-        this.allData = response;
+        this.allData = response
       },
       err => console.error(err)
     );
-    this.countUser()
+
   }
 
   countUser() {
@@ -44,16 +46,31 @@ export class HomeComponent implements OnInit {
   }
   sumBalance() {
     for (let i = 0; i < this.allData.length; i += 1) {
-      this.balance += parseInt(this.allData[i].balance.replace('$', '').replace(',', ''))
+      if (this.allData[i].balance !== undefined) {
+        this.balance += parseInt(this.allData[i].balance.replace('$', '').replace(',', ''))
+      }
     }
     return this.balance;
   }
   countAppleLover() {
     for (let i = 0; i < this.allData.length; i += 1) {
-      if (this.allData[i].favoriteFruit === 'apple') {
-        this.appleCounter++;
+      if ((this.Fruits.indexOf(this.allData[i].favoriteFruit)) == -1
+        && this.allData[i].favoriteFruit !== undefined) {
+        this.Fruits.push(this.allData[i].favoriteFruit)
       }
     }
-    return this.appleCounter;
+    console.log(this.Fruits);
+    for (let j = 0; j < this.Fruits.length; j += 1) {
+
+      for (let i = 0; i < this.allData.length; i += 1) {
+        if (this.allData[i].favoriteFruit === this.Fruits[j]) {
+          this.fruitCounter++;
+        }
+      }
+      this.FruitArray.push(this.fruitCounter)
+      this.fruitCounter = 0;
+    }
+    return this.Fruits;
   }
+
 }
