@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/model/user';
@@ -9,14 +9,18 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
+
   selUserId: number;
-  selUser: User;
+  selUser: User[];
   constructor(private userService: UserService,
     private ar: ActivatedRoute) {
     this.ar.params.forEach(params => {
       this.selUserId = params.id;
-      console.log(this.selUserId);
-      //this.selUser = this.userList
+      this.userService.getOne(this.selUserId).subscribe(
+        response => {
+        this.selUser = response;
+          console.log(this.selUser);
+        })
     })
   }
 
