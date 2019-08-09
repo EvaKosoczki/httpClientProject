@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 
 @Component({
@@ -13,7 +13,7 @@ export class EditUserComponent implements OnInit {
   selUserId: number;
   selUser: User;
   constructor(private userService: UserService,
-    private ar: ActivatedRoute) {
+    private ar: ActivatedRoute, private router: Router) {
     this.ar.params.forEach(params => {
       this.selUserId = params.id;
       this.userService.getOne(this.selUserId).subscribe(
@@ -28,7 +28,10 @@ export class EditUserComponent implements OnInit {
   onEditSubmit(ev: Event) {
     ev.preventDefault();
     this.userService.editUser(this.selUser, this.selUserId).subscribe(
-      response => this.selUser = new User(),
+      response => {
+        this.selUser = new User();
+        this.router.navigateByUrl("/users")
+      },
       err => console.error(err),
     )
   }

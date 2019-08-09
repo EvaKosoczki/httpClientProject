@@ -8,7 +8,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PopupComponent {
   constructor(public activeModal: NgbActiveModal) { }
-  
+
   closeModal() {
     this.activeModal.close('Modal Closed');
   }
