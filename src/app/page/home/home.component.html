@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">User Statistics</h5>
+          <p class="card-text">Number of users: {{countUser()}}</p>
+          <span class="card-text col-6">Active users:
+            {{countActiveUser()}}</span>
+          <span class="card-text col-6">Not active users:
+            {{countNotActiveUser()}}</span>
+          <p class="card-text">Sum of user's balance: {{sumBalance()}} $</p>
+          <p><a href="#" class="btn btn-primary">Go somewhere</a></p>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

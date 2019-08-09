@@ -28,7 +28,7 @@ export class EditUserComponent implements OnInit {
   onEditSubmit(ev: Event) {
     ev.preventDefault();
     this.userService.editUser(this.selUser, this.selUserId).subscribe(
-      response => this.selUser=new User(),
+      response => this.selUser = new User(),
       err => console.error(err),
     )
   }
