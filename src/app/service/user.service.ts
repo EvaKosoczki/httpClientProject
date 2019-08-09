@@ -17,8 +17,8 @@ export class UserService {
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.jsonUrl);
   }
-  getOne(id): Observable<User[]> {
-    return this.http.get<User[]>(`${this.jsonUrl}/${id}`);
+  getOne(id): Observable<User> {
+    return this.http.get<User>(`${this.jsonUrl}/${id}`);
   }
   addnewUser(newData): Observable<User[]> {
     return this.http.post<User[]>(this.jsonUrl, newData);
@@ -26,5 +26,9 @@ export class UserService {
 
   removeUser(userID: number): Observable<User[]> {
     return this.http.delete<User[]>(`${this.jsonUrl}/${userID}`)
+  }
+
+  editUser(editedData,userID): Observable<User[]> {
+    return this.http.put<User[]>(`${this.jsonUrl}/${userID}`,editedData);
   }
 }

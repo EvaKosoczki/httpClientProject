@@ -11,20 +11,25 @@ import { User } from 'src/app/model/user';
 export class EditUserComponent implements OnInit {
 
   selUserId: number;
-  selUser: User[];
+  selUser: User;
   constructor(private userService: UserService,
     private ar: ActivatedRoute) {
     this.ar.params.forEach(params => {
       this.selUserId = params.id;
       this.userService.getOne(this.selUserId).subscribe(
         response => {
-        this.selUser = response;
-          console.log(this.selUser);
+          this.selUser = response;
         })
     })
   }
 
   ngOnInit() {
   }
-
+  onEditSubmit(ev: Event) {
+    ev.preventDefault();
+    this.userService.editUser(this.selUser, this.selUserId).subscribe(
+      response => this.selUser=new User(),
+      err => console.error(err),
+    )
+  }
 }

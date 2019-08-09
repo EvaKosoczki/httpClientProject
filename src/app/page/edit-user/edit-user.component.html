@@ -4,7 +4,7 @@
       <h1>Edit User</h1>
     </div>
     <div class="col-8 offset-2">
-      <form (submit)="onSubmit($event)">
+      <form (submit)="onEditSubmit($event)">
         <div class="form-group">
           <label for="first">First Name</label>
           <input type="text" class="form-control" id="first"
@@ -42,3 +42,4 @@
     </div>
   </div>
 </div>
+<p>{{selUser.email}}</p>
