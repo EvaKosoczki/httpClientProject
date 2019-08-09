@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   activeUserCount: number = 0;
   notactiveUserCount: number = 0;
   balance: number = 0;
+  appleCounter: number = 0;
   constructor(private userService: UserService) { }
   ngOnInit() {
     this.userService.getAll().subscribe(
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
         this.allData = response;
       },
       err => console.error(err)
-    )
+    );
+    this.countUser()
   }
 
   countUser() {
@@ -44,7 +46,14 @@ export class HomeComponent implements OnInit {
     for (let i = 0; i < this.allData.length; i += 1) {
       this.balance += parseInt(this.allData[i].balance.replace('$', '').replace(',', ''))
     }
-
     return this.balance;
+  }
+  countAppleLover() {
+    for (let i = 0; i < this.allData.length; i += 1) {
+      if (this.allData[i].favoriteFruit === 'apple') {
+        this.appleCounter++;
+      }
+    }
+    return this.appleCounter;
   }
 }

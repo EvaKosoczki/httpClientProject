@@ -3,20 +3,20 @@
     <div class="col-8 offset-2">
       <div class="card text-center">
         <div class="card-header">
-          Featured
+          <h5 class="card-title">User Statistics</h5>
         </div>
         <div class="card-body">
-          <h5 class="card-title">User Statistics</h5>
           <p class="card-text">Number of users: {{countUser()}}</p>
-          <span class="card-text col-6">Active users:
+          <span class="card-text p-3 col-6">Active users:
             {{countActiveUser()}}</span>
-          <span class="card-text col-6">Not active users:
+          <span class="card-text p-3 col-6">Not active users:
             {{countNotActiveUser()}}</span>
           <p class="card-text">Sum of user's balance: {{sumBalance()}} $</p>
-          <p><a href="#" class="btn btn-primary">Go somewhere</a></p>
+          <p class="card-text">Number of apple lovers: {{countAppleLover()}}
+          </p>
         </div>
         <div class="card-footer text-muted">
-          2 days ago
+          <p><a routerLink="/users" class="btn btn-primary">Users</a></p>
         </div>
       </div>
     </div>

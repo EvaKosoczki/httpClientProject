@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './page/nav/nav.component';
@@ -12,6 +13,7 @@ import { EditUserComponent } from './page/edit-user/edit-user.component';
 import { AddUserComponent } from './page/add-user/add-user.component';
 import { SearchPipePipe } from './pipe/search-pipe.pipe';
 import { OrderPipe } from './pipe/order.pipe';
+import { PopupComponent } from './popup/popup/popup.component';
 
 const appRoutes: Routes = [
   {
@@ -45,9 +47,11 @@ const appRoutes: Routes = [
     EditUserComponent,
     AddUserComponent,
     SearchPipePipe,
-    OrderPipe
+    OrderPipe,
+    PopupComponent
   ],
   imports: [
+    NgbModule,
     FormsModule,
     BrowserModule,
     HttpClientModule,
@@ -57,6 +61,9 @@ const appRoutes: Routes = [
     )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    PopupComponent
+  ]
 })
 export class AppModule { }

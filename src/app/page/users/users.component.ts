@@ -3,6 +3,8 @@ import { UserService } from '../../service/user.service';
 import { User } from '../../model/user';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PopupComponent } from 'src/app/popup/popup/popup.component';
 
 @Component({
   selector: 'app-users',
@@ -18,15 +20,14 @@ export class UsersComponent implements OnInit, OnDestroy {
   sorterKey: string = '';
   counter: number = 0;
   constructor(
-    private userService: UserService
+    private userService: UserService, private modalService: NgbModal
   ) {
 
   }
 
   ngOnInit() {
     this.userSubscription = this.userService.getAll().subscribe(
-      users =>
-        this.userList = users
+      users => this.userList = users
     );
   }
 
@@ -45,7 +46,15 @@ export class UsersComponent implements OnInit, OnDestroy {
         this.counter++;
       })
   }
+  openFormModal(picked: User) {
+    const modalRef = this.modalService.open(PopupComponent);
 
+    modalRef.result.then((result) => {
+      this.onDelete(picked)
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
   /*
   userListModifier() {
     for (let i = 0; i < this.userList.length; i += 1) {
