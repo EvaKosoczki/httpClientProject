@@ -21,6 +21,10 @@ const appRoutes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+  },
+  {
+    path: 'newuser',
+    component: AddUserComponent,
   }, {
     path: '**',
     component: HomeComponent,//legyen 404 oldal!

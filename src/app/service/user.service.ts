@@ -17,4 +17,8 @@ export class UserService {
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.jsonUrl);
   }
+
+  addnewUser(newData):Observable<User[]>{
+    return this.http.post<User[]>(this.jsonUrl,newData);
+  }
 }

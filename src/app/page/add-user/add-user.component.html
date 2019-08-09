@@ -1,1 +1,45 @@
-<p>add-user works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1>New User</h1>
+    </div>
+    <div class="col-8 offset-2">
+      <form (submit)="onSubmit($event)">
+        <div class="form-group">
+          <label for="first">First Name</label>
+          <input type="text" class="form-control" id="first"
+            placeholder="Enter first name" name="first"
+            [(ngModel)]="newUser.name.first">
+        </div>
+        <div class="form-group">
+          <label for="last">Last Name</label>
+          <input type="text" class="form-control" id="last"
+            placeholder="Enter last name" name="last"
+            [(ngModel)]="newUser.name.last">
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age"
+            placeholder="Enter age" name="age" [(ngModel)]="newUser.age">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email"
+            placeholder="Enter email" name="email" [(ngModel)]="newUser.email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Mobile</label>
+          <input type="text" class="form-control" id="phone"
+            placeholder="Enter mobile" name="phone" [(ngModel)]="newUser.phone">
+        </div>
+        <div class="form-check pl-5 pb-1">
+          <input type="checkbox" class="form-check-input" id="isactive"
+            name="isActive" [(ngModel)]="newUser.isActive">
+          <label class="form-check-label" for="isactive">Active</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
