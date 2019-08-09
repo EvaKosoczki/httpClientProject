@@ -36,9 +36,10 @@
             <td>{{ user.age }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
-            <td class="btn-group"><button
-                class="btn btn-outline-primary">Edit</button><button
-                class="btn btn-outline-secondary">Remove</button></td>
+            <td class="btn-group"><button class="btn btn-outline-primary"
+                routerLink="/edituser/{{user.id}}">Edit</button><button
+                class="btn btn-outline-secondary"
+                (click)="onDelete(user)">Remove</button></td>
           </tr>
         </tbody>
       </table>

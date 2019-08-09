@@ -25,7 +25,12 @@ const appRoutes: Routes = [
   {
     path: 'newuser',
     component: AddUserComponent,
-  }, {
+  },
+  {
+    path: 'edituser/:id',
+    component: EditUserComponent,
+  },
+  {
     path: '**',
     component: HomeComponent,//legyen 404 oldal!
   }

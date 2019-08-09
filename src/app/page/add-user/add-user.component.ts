@@ -17,8 +17,10 @@ export class AddUserComponent implements OnInit {
   onSubmit(ev: Event): void {
     ev.preventDefault();
     this.userService.addnewUser(this.newUser).subscribe(
-      response => this.newUser= new User(),
-      err=>console.error(err),
+      response => this.newUser = new User(),
+      err => console.error(err),
     )
   }
+
+
 }

@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   filterPhrase: string;
   modUserList: User[] = [];
   sorterKey: string = '';
-
+  counter: number = 0;
   constructor(
     private userService: UserService
   ) {
@@ -36,6 +36,16 @@ export class UsersComponent implements OnInit, OnDestroy {
   sorterFunc(value: string): void {
     this.sorterKey = value;
   }
+
+  onDelete(picked: User) {
+    this.userService.removeUser(picked.id).subscribe(
+      response => {
+        let index = this.userList.indexOf(picked);
+        this.userList.splice(index, 1);
+        this.counter++;
+      })
+  }
+
   /*
   userListModifier() {
     for (let i = 0; i < this.userList.length; i += 1) {
