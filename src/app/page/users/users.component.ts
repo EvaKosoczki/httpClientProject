@@ -18,7 +18,6 @@ export class UsersComponent implements OnInit, OnDestroy {
   filterPhrase: string;
   modUserList: User[] = [];
   sorterKey: string = '';
-  counter: number = 0;
   sortDirection: number = 1;
   constructor(
     private userService: UserService, private modalService: NgbModal
@@ -49,14 +48,14 @@ export class UsersComponent implements OnInit, OnDestroy {
       response => {
         let index = this.userList.indexOf(picked);
         this.userList.splice(index, 1);
-        this.counter++;
-      })
+      },
+      err => console.log(err))
   }
-  openFormModal(picked: User) {
+  openFormModal(pickedid: User) {
     const modalRef = this.modalService.open(PopupComponent);
 
     modalRef.result.then((result) => {
-      this.onDelete(picked)
+      this.onDelete(pickedid)
     }).catch((error) => {
       console.log(error);
     });

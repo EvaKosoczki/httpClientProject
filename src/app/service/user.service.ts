@@ -29,7 +29,7 @@ export class UserService {
     return this.http.delete<User[]>(`${this.jsonUrl}/${userID}`)
   }
 
-  editUser(editedData, userID): Observable<User[]> {
+  editUser(userID, editedData): Observable<User[]> {
     return this.http.put<User[]>(`${this.jsonUrl}/${userID}`, editedData);
   }
 }

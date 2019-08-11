@@ -1185,7 +1185,7 @@
       "age": 30,
       "eyeColor": "green",
       "name": {
-        "first": "Annette",
+        "first": "Annett",
         "last": "Morin"
       },
       "company": "GRAINSPOT",
@@ -5599,17 +5599,6 @@
       ],
       "greeting": "Hello, Carlson! You have 6 unread messages.",
       "favoriteFruit": "strawberry"
-    },
-    {
-      "id": 101,
-      "name": {
-        "first": "Eva",
-        "last": "Spencer"
-      },
-      "isActive": false,
-      "age": 0,
-      "email": "piri@gmail.com",
-      "phone": "+1 (930) 454-3771"
     }
   ]
 }

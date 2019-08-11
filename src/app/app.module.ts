@@ -35,7 +35,7 @@ const appRoutes: Routes = [
   },
   {
     path: '**',
-    component: HomeComponent,//legyen 404 oldal!
+    component: HomeComponent,
   }
 ];
 
