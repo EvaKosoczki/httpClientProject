@@ -2,15 +2,16 @@
   <!--<p>{{userListModifier()}}</p>-->
   <div class="row">
     <div class="col-10 offset-1">
-      <h1>{{ title }}</h1>
+      <h1><i class="fa fa-users p-2" aria-hidden="true"></i>{{ title }}</h1>
     </div>
     <div class="col-5 input-group offset-1 p-4">
-      <label for="search">Search</label>
+      <label for="search" class="p-3 align-middle">Search</label>
       <input class="form-control" type="text" id="search"
         [(ngModel)]="filterPhrase">
     </div>
     <div class="col-4 text-right"><button class="btn btn-primary"
-        routerLink="/newuser">Add new user</button></div>
+        routerLink="/newuser">Add new user <i class="fa fa-plus-square-o"
+          aria-hidden="true"></i></button></div>
   </div>
   <div class="row">
     <div class="col-10 offset-1">
@@ -37,9 +38,12 @@
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
             <td class="btn-group"><button class="btn btn-outline-primary"
-                routerLink="/edituser/{{user.id}}">Edit</button><button
-                (click)="openFormModal(user)"
-                class="btn btn-outline-secondary">Remove</button></td>
+                routerLink="/edituser/{{user.id}}">Edit <i class="fa fa-pencil"
+                  aria-hidden="true"></i>
+              </button><button (click)="openFormModal(user)"
+                class="btn btn-outline-secondary">Remove <i class="fa fa-trash"
+                  aria-hidden="true"></i>
+              </button></td>
           </tr>
         </tbody>
       </table>
