@@ -19,6 +19,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   modUserList: User[] = [];
   sorterKey: string = '';
   counter: number = 0;
+  sortDirection: number = 1;
   constructor(
     private userService: UserService, private modalService: NgbModal
   ) {
@@ -36,6 +37,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   };
   sorterFunc(value: string): void {
     this.sorterKey = value;
+    if (this.sortDirection === 1) {
+      this.sortDirection = -1
+    } else {
+      this.sortDirection = 1
+    }
   }
 
   onDelete(picked: User) {

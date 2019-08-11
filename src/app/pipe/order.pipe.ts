@@ -5,19 +5,24 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderPipe implements PipeTransform {
 
-  transform(baseArray: any, key: string): any {
+  transform(baseArray: any, key: string, direction: number = 1): any {
     if (key === '') {
       return baseArray;
     }
-    if (key === 'name') {
-      baseArray.sort((a, b) => {
-        return a.name.first.toString().localeCompare(b.name.first.toString())
-      })
-    }
     baseArray.sort((a, b) => {
-      return a[key].toString().localeCompare(b[key].toString())
+      if (key === 'name') {
+        return (a.name.first.toString().localeCompare(b.name.first.toString())) * direction
+      } else if (key === 'id') {
+        return (a.id - b.id) * direction
+      }
+      else {
+        return (a[key].toString().localeCompare(b[key].toString())) * direction
+      }
     })
     return baseArray;
   }
-
 }
+
+
+
+

@@ -30,7 +30,7 @@
 
         <tbody>
           <tr
-            *ngFor="let user of userList|searchPipe:filterPhrase|order:sorterKey">
+            *ngFor="let user of userList|searchPipe:filterPhrase|order:sorterKey:sortDirection">
             <td>{{ user.id }}</td>
             <td>{{ user.name.first }} {{ user.name.last }}</td>
             <td>{{ user.isActive }}</td>
