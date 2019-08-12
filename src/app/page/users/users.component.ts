@@ -19,6 +19,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   modUserList: User[] = [];
   sorterKey: string = '';
   sortDirection: number = 1;
+  changeCounter: number = 0;
   constructor(
     private userService: UserService, private modalService: NgbModal
   ) {
@@ -48,6 +49,7 @@ export class UsersComponent implements OnInit, OnDestroy {
       response => {
         let index = this.userList.indexOf(picked);
         this.userList.splice(index, 1);
+        this.changeCounter++;
       },
       err => console.log(err))
   }

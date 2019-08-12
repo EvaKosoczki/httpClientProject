@@ -29,7 +29,7 @@
 
         <tbody>
           <tr
-            *ngFor="let user of userList|searchPipe:filterPhrase|order:sorterKey:sortDirection">
+            *ngFor="let user of userList|searchPipe:filterPhrase:changeCounter|order:sorterKey:sortDirection:changeCounter">
             <td>{{ user.id }}</td>
             <td>{{ user.name.first }} {{ user.name.last }}</td>
             <td>{{ user.isActive }}</td>
